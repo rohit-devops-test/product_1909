@@ -1,0 +1,335 @@
+Initialized empty Git repository in /root/repo/.git/
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# ll
+total 0
+[root@jain repo]# ls -la
+total 4
+drwxr-xr-x. 3 root root   18 Aug  4 10:32 .
+dr-xr-x---. 7 root root 4096 Aug  4 10:31 ..
+drwxr-xr-x. 7 root root  119 Aug  4 10:32 .git
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# cd .git/
+[root@jain .git]# ll
+total 12
+drwxr-xr-x. 2 root root   6 Aug  4 10:32 branches
+-rw-r--r--. 1 root root  92 Aug  4 10:32 config
+-rw-r--r--. 1 root root  73 Aug  4 10:32 description
+-rw-r--r--. 1 root root  23 Aug  4 10:32 HEAD
+drwxr-xr-x. 2 root root 242 Aug  4 10:32 hooks
+drwxr-xr-x. 2 root root  21 Aug  4 10:32 info
+drwxr-xr-x. 4 root root  30 Aug  4 10:32 objects
+drwxr-xr-x. 4 root root  31 Aug  4 10:32 refs
+[root@jain .git]# cd ..
+[root@jain repo]# clear
+
+[root@jain repo]# touch file1
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	file1
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# 
+[root@jain repo]# git add .
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   file1
+#
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git commit -m "this is my first commit"
+[master (root-commit) 96d642b] this is my first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1
+[root@jain repo]# git status
+# On branch master
+nothing to commit, working directory clean
+[root@jain repo]# 
+[root@jain repo]# touch anotherfile
+[root@jain repo]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	anotherfile
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# 
+[root@jain repo]# vim file1 
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   file1
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	anotherfile
+no changes added to commit (use "git add" and/or "git commit -a")
+[root@jain repo]# git add .
+[root@jain repo]# git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   anotherfile
+#	modified:   file1
+#
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git config user.name "rohit"
+[root@jain repo]# git config user.email "rohit@ex.com"
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git commit 
+[master 986e974] this is my second commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 anotherfile
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+nothing to commit, working directory clean
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git log
+commit 986e9741203eb9b4fc1d3cc91bd3fe83ff19a4e7
+Author: rohit <rohit@ex.com>
+Date:   Sun Aug 4 10:46:46 2019 +0530
+
+    this is my second commit
+
+commit 96d642bf5bc7245a680cdd24b3ebc00922ff8764
+Author: rohit-devops-test <rohitkumarjain36@gmail.com>
+Date:   Sun Aug 4 10:35:56 2019 +0530
+
+    this is my first commit
+[root@jain repo]# history
+    1  cat /etc/fstab 
+    2  df -h
+    3  lsblk
+    4  ls -lrth
+    5  ls /home/rohit/
+    6  mkdir /Learning_hub
+    7  ls
+    8  cd /
+    9  ls
+   10  rm -rf learning_hub
+   11  cd
+   12  mount -t ext4 /dev/sda3 /Learning_hub/
+   13  df -h
+   14  lsblk
+   15  vim /etc/fstab 
+   16  mount -a
+   17  vi /etc/fstab 
+   18  mount
+   19  vi /etc/fstab 
+   20  mount -a
+   21  reboot
+   22  cat /proc/cpuinfo 
+   23  cd /proc/
+   24  ls -lrth
+   25  cat /proc/cpuinfo 
+   26  cat /proc/meminfo 
+   27  dmidecode
+   28  ll
+   29  cat ~/.bashrc 
+   30  history | tail -n 10
+   31  cat /proc/meminfo
+   32  cat /proc/cpiinfo
+   33  cat /proc/cpuinfo
+   34  ls -lrth /proc/*info
+   35  less /proc/pagetypeinfo
+   36  less /proc/cpuinfo
+   37  more /proc/cpuinfo
+   38  cat meminfo 
+   39  find / -type s
+   40  find / -type s -exec ls -lrth {}\;
+   41  find / -type s -exec ls -lrth {} \;
+   42  vim /dev/log
+   43  vim /tmp/.ICE-unix/4172
+   44  vim /tmp/.ICE-unix/13945
+   45  pwd
+   46  su - root
+   47  su - rohit
+   48  su rohit
+   49  vim deploy.sh
+   50  ls -l
+   51  lsblk
+   52  su - timepass
+   53  su timepass
+   54  visudo
+   55  su - timepass
+   56  userdel timepass 
+   57  su - timepass
+   58  ls -lrth
+   59  chmod 610 file_3 
+   60  ls -lrth
+   61  su - rohit
+   62  yum install git
+   63  git --version
+   64  git config --global user.name rohit-devops-test
+   65  git config --global user.email "rohitkumarjain36@gmail.com"
+   66  which vim
+   67  git config --system jain.editor "/bin/vim"
+   68  mkdir repo
+   69  cd repo/
+   70  ll
+   71  git init .
+   72  ll
+   73  ls -la
+   74  cd .git/
+   75  ll
+   76  cd ..
+   77  clear
+   78  touch file1
+   79  git status
+   80  git add .
+   81  git status
+   82  git commit -m "this is my first commit"
+   83  git status
+   84  touch anotherfile
+   85  git status
+   86  vim file1 
+   87  git status
+   88  git add .
+   89  git status
+   90  git config user.name "rohit"
+   91  git config user.email "rohit@ex.com"
+   92  git commit 
+   93  git status
+   94  git log
+   95  history
+[root@jain repo]# touch image.jpeg
+[root@jain repo]# 
+[root@jain repo]# touch picture.jpeg
+[root@jain repo]# mkdir useless
+[root@jain repo]# cd useless/
+[root@jain useless]# touch file1
+[root@jain useless]# touch file2
+[root@jain useless]# cd ../
+[root@jain repo]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	image.jpeg
+#	picture.jpeg
+#	useless/
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# 
+[root@jain repo]# touch .gitignore
+[root@jain repo]# vim .gitignore 
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	useless/
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# vim .gitignore 
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+#	useless/
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# vim .gitignore 
+[root@jain repo]# git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+nothing added to commit but untracked files present (use "git add" to track)
+[root@jain repo]# pwd
+/root/repo
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# #git clone /root/repo/clone-of-repo
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# git clone /root/repo/ clone-of-repo
+Cloning into 'clone-of-repo'...
+done.
+[root@jain repo]# cd ../
+[root@jain ~]# ls -lrth
+total 20K
+-rw-------. 1 root root 2.1K Jul 22 23:42 anaconda-ks.cfg
+-rw-r--r--. 1 root root 2.1K Jul 23 01:08 initial-setup-ks.cfg
+-rw---x---. 1 root root    0 Jul 25 14:11 file_3
+-rw-r--r--. 1 root root    0 Jul 25 14:11 file_5
+-rw-r--r--. 1 root root    0 Jul 25 14:11 file_4
+-rw-r--r--. 1 root root   54 Jul 25 14:15 file_2
+-rw-r--r--. 1 root root  152 Jul 25 14:25 file_1
+-rw-r--r--. 1 root root  107 Aug  3 12:47 deploy.sh
+drwxr-xr-x. 5 root root  142 Aug  4 11:02 repo
+[root@jain ~]# 
+[root@jain ~]# cd repo/
+[root@jain repo]# ls -lrth
+total 4.0K
+-rw-r--r--. 1 root root  0 Aug  4 10:36 anotherfile
+-rw-r--r--. 1 root root 26 Aug  4 10:37 file1
+-rw-r--r--. 1 root root  0 Aug  4 10:50 image.jpeg
+-rw-r--r--. 1 root root  0 Aug  4 10:51 picture.jpeg
+drwxr-xr-x. 2 root root 32 Aug  4 10:51 useless
+drwxr-xr-x. 3 root root 50 Aug  4 11:02 clone-of-repo
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# cd clone-of-repo
+[root@jain clone-of-repo]# ls -lrth
+total 4.0K
+-rw-r--r--. 1 root root 26 Aug  4 11:02 file1
+-rw-r--r--. 1 root root  0 Aug  4 11:02 anotherfile
+[root@jain clone-of-repo]# 
+[root@jain clone-of-repo]# 
+[root@jain clone-of-repo]# cd ../
+[root@jain repo]# ls -lrth
+total 4.0K
+-rw-r--r--. 1 root root  0 Aug  4 10:36 anotherfile
+-rw-r--r--. 1 root root 26 Aug  4 10:37 file1
+-rw-r--r--. 1 root root  0 Aug  4 10:50 image.jpeg
+-rw-r--r--. 1 root root  0 Aug  4 10:51 picture.jpeg
+drwxr-xr-x. 2 root root 32 Aug  4 10:51 useless
+drwxr-xr-x. 3 root root 50 Aug  4 11:02 clone-of-repo
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# mv clone-of-repo/ /root/
+[root@jain repo]# ls -lrth
+total 4.0K
+-rw-r--r--. 1 root root  0 Aug  4 10:36 anotherfile
+-rw-r--r--. 1 root root 26 Aug  4 10:37 file1
+-rw-r--r--. 1 root root  0 Aug  4 10:50 image.jpeg
+-rw-r--r--. 1 root root  0 Aug  4 10:51 picture.jpeg
+drwxr-xr-x. 2 root root 32 Aug  4 10:51 useless
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# 
+[root@jain repo]# cd
+[root@jain ~]# 
+[root@jain ~]# 
+
